@@ -1,8 +1,9 @@
-from dbsim.adapters.dataframe_adapter import DataFrameAdapter 
 from pandas import DataFrame
-from ...field import FieldType
-from ...extensions.extended_syntax.spatial_syntax import Point, Circle
 
+from dbsim.adapters.dataframe_adapter import DataFrameAdapter
+
+from ...extensions.extended_syntax.spatial_syntax import Circle, Point
+from ...field import FieldType
 
 points = DataFrame([
   (

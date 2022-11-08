@@ -1,14 +1,14 @@
 import os
 import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from dbsim import dataset as ds
-from dbsim.tests.fixtures.demo_adapter import DemoAdapter
-from dbsim.query_parser import parse_statement
-from dbsim.query import Query
 from dbsim.planners import rules
-from dbsim.planners.heuristic.heuristic_planner import HeuristicPlanner
 from dbsim.planners.cost.logical_cost import LogicalCost
-
+from dbsim.planners.heuristic.heuristic_planner import HeuristicPlanner
+from dbsim.query import Query
+from dbsim.query_parser import parse_statement
+from dbsim.tests.fixtures.demo_adapter import DemoAdapter
 
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())

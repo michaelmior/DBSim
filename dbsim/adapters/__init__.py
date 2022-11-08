@@ -1,5 +1,8 @@
+from functools import partial
+
 from .. import Relation
-from functools import partial 
+
+
 class Adapter(object):
   """
   Adapter objects provide relations to the dataset.

@@ -1,18 +1,18 @@
-from ...ast import *
-from .registry_utils import *
-from .extended_syntax import ExtendedSyntax
-from ...utils.exceptions import SQLSyntaxError
-from ... import query_parser_toolbox as toolbox 
-from ...compilers import local as main_compiler
-from ... import schema_interpreter  
-from ... import field 
-
-from functools import partial
+import typing
 from enum import Enum
-from scipy.spatial.distance import cosine, euclidean
+from functools import partial
 
 import numpy as np
-import typing
+from scipy.spatial.distance import cosine, euclidean
+
+from ... import field
+from ... import query_parser_toolbox as toolbox
+from ... import schema_interpreter
+from ...ast import *
+from ...compilers import local as main_compiler
+from ...utils.exceptions import SQLSyntaxError
+from .extended_syntax import ExtendedSyntax
+from .registry_utils import *
 
 Vec = np.ndarray
 VecDim = 4

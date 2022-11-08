@@ -1,5 +1,6 @@
 from .. import dataset as ds
-from .fixtures.employee_adapter import EmployeeAdapter, EmployeeDataFrameAdapter
+from .fixtures.employee_adapter import (EmployeeAdapter,
+                                        EmployeeDataFrameAdapter)
 
 truth_dataset = ds.DataSet()
 df_dataset = ds.DataSet()

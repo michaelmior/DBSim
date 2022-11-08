@@ -1,11 +1,14 @@
 # functions for manipulating operations go here
 
 from functools import partial
-from zipper import zipper, Loc
+from typing import Callable
+
+from zipper import Loc, zipper
 
 from . import Relation
-from .ast import LoadOp, EqOp, RelationalOp, Function, Var, BinRelationalOp, Expr
-from typing import Callable
+from .ast import (BinRelationalOp, EqOp, Expr, Function, LoadOp, RelationalOp,
+                  Var)
+
 
 def query_zipper(operation: Expr) -> Loc:
   return zipper(operation, is_branch, children, make_node)

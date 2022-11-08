@@ -1,7 +1,8 @@
-from typing import Callable, Union, Type
 from enum import Enum
+from typing import Callable, Type, Union
 
 from .exceptions import *
+
 
 class Comparison(Enum):
     LE = 1

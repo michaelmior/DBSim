@@ -2,7 +2,7 @@ from collections import defaultdict
 from functools import partial
 from sys import getsizeof
 
-from ..ast import EqOp, And, Var
+from ..ast import And, EqOp, Var
 from .local import var_expr
 
 B=1

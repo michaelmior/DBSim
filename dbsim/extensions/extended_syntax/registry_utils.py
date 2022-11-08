@@ -1,10 +1,11 @@
-from enum import Enum
-from collections import OrderedDict
 import typing
-from typing import NewType, Dict, List, Type, Callable
-from .extended_syntax import ExtendedSyntax
-from ...utils import *
+from collections import OrderedDict
+from enum import Enum
+from typing import Callable, Dict, List, NewType, Type
+
 from ...ast import *
+from ...utils import *
+from .extended_syntax import ExtendedSyntax
 
 Registry = OrderedDict
 Keyword = str

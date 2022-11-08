@@ -3,14 +3,13 @@ import typing
 
 import codd
 
-from . import Field
-from . import Schema
+from . import Field, Schema
 from .ast import *
-from .utils import * 
-from .utils.exceptions import *
-from .utils.logger import Logger
 from .extensions.extended_syntax.extended_syntax import ExtendedSyntax
 from .extensions.extended_syntax.registry_utils import *
+from .utils import *
+from .utils.exceptions import *
+from .utils.logger import Logger
 
 logger = Logger.general_logger
 BLOCK_ERROR = True

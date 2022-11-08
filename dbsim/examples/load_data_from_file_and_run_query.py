@@ -1,10 +1,11 @@
 import os
 import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from dbsim import dataset as ds
 from dbsim.adapters.adapter_factory import AdapterFactory
-from dbsim.query_parser import parse_statement
 from dbsim.query import Query
+from dbsim.query_parser import parse_statement
 
 dataset = ds.DataSet()
 

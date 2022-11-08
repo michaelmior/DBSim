@@ -1,11 +1,11 @@
-from typing import List, Union
 import inspect
+from typing import List, Union
 
-from .rule_operand import RuleOperand
+from ...ast import *
 from ...utils import *
 from ...utils.exceptions import *
-from ...ast import *
 from ...utils.logger import Logger
+from .rule_operand import RuleOperand
 
 logger = Logger.general_logger
 

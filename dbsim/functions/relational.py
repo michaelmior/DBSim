@@ -2,8 +2,9 @@
 Functions useable in the from clause
 """
 
-from ..schema import Schema
 from ..field import FieldType
+from ..schema import Schema
+
 
 def register_on(dataset):
   dataset.add_function("flatten", flatten, flatten_schema)

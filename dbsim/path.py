@@ -4,8 +4,8 @@ path.py - functions for manipulation and extracting data from paths.
 
 import re
 
-
 from codd import Tokens
+
 
 def tokenize_pattern(pattern):
   t = Tokens(pattern)

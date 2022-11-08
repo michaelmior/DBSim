@@ -2,6 +2,7 @@ from dbsim import Table
 from dbsim.adapters import Adapter
 from dbsim.field import FieldType
 
+
 class MockAdapter(Adapter):
   def __init__(self):
     

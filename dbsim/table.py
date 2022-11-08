@@ -1,5 +1,6 @@
 from .schema import Schema
 
+
 class Table(object):
   def __init__(self, adapter, name, schema):
     """

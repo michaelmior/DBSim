@@ -1,5 +1,7 @@
 from dbsim import Table
+
 from . import Adapter
+
 
 class DictAdapter(Adapter):
   """

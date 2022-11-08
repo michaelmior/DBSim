@@ -1,23 +1,15 @@
+from . import aggregates, compat, config, functions
+from .adapters.null_adapter import NullAdapter
+from .aggregates import Aggregate
+from .ast import AliasOp, Expr, LoadOp
+from .compilers import local
+from .compilers.local import relational_function
+from .field import Field
+from .operations import walk
 from .query import Query, view_replacer
 from .query_builder import QueryBuilder
 from .query_parser import parse_statement
-from .adapters.null_adapter import  NullAdapter
-from .ast import LoadOp, Expr, AliasOp
-from .aggregates import Aggregate
-from .compilers import local
 
-from .compilers.local import relational_function
-
-from .field import Field
-
-from .operations import walk
-
-from . import functions
-from . import aggregates
-
-from . import compat
-
-from . import config
 
 class DataSet(object):
 

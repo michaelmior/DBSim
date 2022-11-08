@@ -1,9 +1,12 @@
-from dbsim.adapters.dict_adapter import DictAdapter 
-from dbsim.adapters.dataframe_adapter import DataFrameAdapter 
 from datetime import date
-from pandas import DataFrame
-from ...field import FieldType
+
 import numpy as np
+from pandas import DataFrame
+
+from dbsim.adapters.dataframe_adapter import DataFrameAdapter
+from dbsim.adapters.dict_adapter import DictAdapter
+
+from ...field import FieldType
 
 employee_records = [
   dict(

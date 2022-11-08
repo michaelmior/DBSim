@@ -1,21 +1,17 @@
+import inspect
+import numbers
 import operator
+import typing
 from functools import partial
 from itertools import islice
-import numbers
 
-from ..ast import *
 from .. import compat
+from ..ast import *
 from ..field import FieldType
-
-from ..operations import  walk, visit_with, isa
-from ..schema_interpreter import (
-  field_from_expr,  JoinSchema, relational_function
-)
-
+from ..operations import isa, visit_with, walk
+from ..schema_interpreter import (JoinSchema, field_from_expr,
+                                  relational_function)
 from ..utils.logger import Logger
-
-import inspect 
-import typing
 
 logger = Logger.general_logger
 stat_field_in_ctx = 'stat'
@@ -742,4 +738,4 @@ The compilation function is such a function: (dataset,  operation) -> ((ctx) -> 
 """
 
 # sigh, oh python and your circular import
-from .join import nested_block_join, hash_join, join_keys
+from .join import hash_join, join_keys, nested_block_join

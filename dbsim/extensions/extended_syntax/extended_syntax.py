@@ -1,10 +1,11 @@
-from ...ast import *
-from ...utils import *
-from ... import field 
+from ... import field
+from ... import query_parser_toolbox as toolbox
 from ... import schema_interpreter
-from ... import query_parser_toolbox as toolbox 
-from ...compilers import local as main_compiler
 from ...adapters.adapter_factory import AdapterFactory
+from ...ast import *
+from ...compilers import local as main_compiler
+from ...utils import *
+
 
 class ExtendedSyntax(object):
   """The abstract class for extended syntax"""

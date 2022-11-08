@@ -1,8 +1,11 @@
-from dbsim.adapters.dataframe_adapter import DataFrameAdapter 
 from datetime import date
-from pandas import DataFrame
-from ...field import FieldType
+
 import numpy as np
+from pandas import DataFrame
+
+from dbsim.adapters.dataframe_adapter import DataFrameAdapter
+
+from ...field import FieldType
 
 """
 The demo scenario and datasets are same as 

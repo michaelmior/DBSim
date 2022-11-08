@@ -1,14 +1,15 @@
-from cmath import sqrt
-from ...ast import *
-from .registry_utils import *
-from .extended_syntax import ExtendedSyntax
-from ...utils.exceptions import SQLSyntaxError
-from ... import query_parser_toolbox as toolbox 
-from ...compilers import local as main_compiler
-from ... import schema_interpreter  
-
-from functools import partial
 import typing
+from cmath import sqrt
+from functools import partial
+
+from ... import query_parser_toolbox as toolbox
+from ... import schema_interpreter
+from ...ast import *
+from ...compilers import local as main_compiler
+from ...utils.exceptions import SQLSyntaxError
+from .extended_syntax import ExtendedSyntax
+from .registry_utils import *
+
 
 class SpatialSelectionOp(SelectionOp):
   __slots__ = ('relation','bool_op','schema', 'cost_factor', 'num_input_rows')

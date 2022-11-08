@@ -3,6 +3,7 @@ from ...compilers import local as main_compiler
 from ...dataset import DataSet
 from ...query import Query
 
+
 class LogicalCost(object):
   """
   Logical cost.

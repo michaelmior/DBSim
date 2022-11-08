@@ -1,12 +1,13 @@
-from typing import Union, List
+from typing import List, Union
 
 from dbsim.utils import ERROR_IF_NOT_EQ
-from .rule_operand import RuleOperand, NoneOperand, AnyMatchOperand
-from .rule import Rule
-from ...ast import *
-from ...utils import exceptions
 
-from ...extensions.extended_syntax import SimSelectionSyntax, SimSelectionOp
+from ...ast import *
+from ...extensions.extended_syntax import SimSelectionOp, SimSelectionSyntax
+from ...utils import exceptions
+from .rule import Rule
+from .rule_operand import AnyMatchOperand, NoneOperand, RuleOperand
+
 
 class Selection_SimSelection_Swap_Rule(Rule):
   def __init__(self) -> None:

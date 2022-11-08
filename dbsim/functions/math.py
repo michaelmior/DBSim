@@ -1,7 +1,10 @@
 from __future__ import absolute_import
-import math
+
 import inspect
+import math
+
 from .function_wapper import FunctionWapper
+
 
 def register_on(dataset):
   for name,func in inspect.getmembers(math, inspect.isbuiltin):

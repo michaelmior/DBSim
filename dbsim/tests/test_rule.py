@@ -1,11 +1,13 @@
 from dbsim.extensions.extended_syntax.sim_select_syntax import SimSelectionOp
 from dbsim.query import Query
+
 from .. import dataset as ds
-from .fixtures.employee_adapter import EmployeeDataFrameAdapter, EmployeeVectorAdapter
-from ..query_parser import parse, parse_statement
 from ..ast import *
-from ..utils.visualizer import LogicalPlanViz
 from ..planners import rules
+from ..query_parser import parse, parse_statement
+from ..utils.visualizer import LogicalPlanViz
+from .fixtures.employee_adapter import (EmployeeDataFrameAdapter,
+                                        EmployeeVectorAdapter)
 
 dataset = ds.DataSet()
 adapter = EmployeeDataFrameAdapter()

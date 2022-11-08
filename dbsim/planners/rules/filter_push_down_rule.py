@@ -1,15 +1,16 @@
 import typing
-from typing import Union, List
 from copy import deepcopy
+from typing import List, Union
 
 from dbsim.schema import Schema
 
-from .rule_operand import RuleOperand, NoneOperand, AnyMatchOperand
-from .rule import Rule
 from ...ast import *
-from ...utils import * 
+from ...utils import *
 from ...utils.exceptions import *
 from ...utils.predicate_utils import PredicateUtils
+from .rule import Rule
+from .rule_operand import AnyMatchOperand, NoneOperand, RuleOperand
+
 
 class FilterPushDownRule(Rule):
   """Implementation of the predicate-push-down rule"""

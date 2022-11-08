@@ -1,11 +1,11 @@
-from . import Field
-from . import Schema
+from . import Field, Schema
 from .ast import *
-from .utils import * 
-from .utils.exceptions import SQLSyntaxError
-from .query_parser_toolbox import *
 from .extensions.extended_syntax.registry import getRegistry
 from .extensions.extended_syntax.registry_utils import *
+from .query_parser_toolbox import *
+from .utils import *
+from .utils.exceptions import SQLSyntaxError
+
 
 # Parses a SQL query string and returns an AST
 def parse(statement, root_exp = None):

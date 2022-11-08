@@ -1,4 +1,6 @@
 import inspect
+
+
 # TODO: deprecate this in favor of namedtuples
 class ImmutableMixin(object):
   """

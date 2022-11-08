@@ -1,5 +1,5 @@
-from .filter_merge_rule import * 
-from .filter_push_down_rule import * 
+from .filter_merge_rule import *
+from .filter_push_down_rule import *
 from .selection_simselection_swap_rule import *
 
 ruleName2ruleClass = {

@@ -1,9 +1,10 @@
+import inspect
 from typing import List, Union
+
+from ...ast import *
 from ...utils import *
 from ...utils import exceptions
-from ...ast import *
 
-import inspect
 
 class RuleOperand(object):
   """The operand tree to represent a rule"""

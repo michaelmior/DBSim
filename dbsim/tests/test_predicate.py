@@ -1,13 +1,15 @@
 import typing
-from typing import *
 from operator import eq
+from typing import *
+
 from .. import dataset as ds
-from .fixtures.employee_adapter import EmployeeAdapter, EmployeeDataFrameAdapter
-from ..query_parser import parse, parse_statement
 from ..ast import *
-from ..utils.predicate_utils import PredicateUtils
-from ..utils.visualizer import LogicalPlanViz 
 from ..query import Query
+from ..query_parser import parse, parse_statement
+from ..utils.predicate_utils import PredicateUtils
+from ..utils.visualizer import LogicalPlanViz
+from .fixtures.employee_adapter import (EmployeeAdapter,
+                                        EmployeeDataFrameAdapter)
 
 dataset = ds.DataSet()
 adapter = EmployeeDataFrameAdapter()

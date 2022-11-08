@@ -1,15 +1,16 @@
 from operator import eq
+
 from .. import dataset as ds
-from .fixtures.employee_adapter import EmployeeDataFrameAdapter, EmployeeVectorAdapter
-from ..query_parser import parse, parse_statement
-from ..query import Query
 from ..ast import *
-from ..utils.visualizer import LogicalPlanViz
-from ..utils.exceptions import *
-from ..planners import rules
-from ..planners import planner
-from ..planners.heuristic.heuristic_planner import HeuristicPlanner
 from ..compilers import local
+from ..planners import planner, rules
+from ..planners.heuristic.heuristic_planner import HeuristicPlanner
+from ..query import Query
+from ..query_parser import parse, parse_statement
+from ..utils.exceptions import *
+from ..utils.visualizer import LogicalPlanViz
+from .fixtures.employee_adapter import (EmployeeDataFrameAdapter,
+                                        EmployeeVectorAdapter)
 
 dataset = ds.DataSet()
 adapter = EmployeeDataFrameAdapter()

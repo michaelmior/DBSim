@@ -1,8 +1,10 @@
-from typing import Set, Union, Dict, ClassVar
-from .rules import *
-from ..utils import *
+from typing import ClassVar, Dict, Set, Union
+
 from ..ast import *
 from ..query import Query
+from ..utils import *
+from .rules import *
+
 
 class Planner(object):
   def __init__(self) -> None:

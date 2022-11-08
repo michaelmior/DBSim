@@ -1,1 +1,1 @@
-from .sim_select_syntax import SimSelectionSyntax, SimSelectionOp
+from .sim_select_syntax import SimSelectionOp, SimSelectionSyntax

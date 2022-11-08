@@ -1,17 +1,17 @@
-from enum import Enum
-import logging
-from typing import List
 import inspect
+import logging
+from enum import Enum
+from typing import List
 
 from dbsim.query import Query
 
-from ..planner import Planner
 from ...ast import *
-from ..rules import Rule
 from ...utils import *
 from ...utils.exceptions import *
 from ...utils.logger import Logger
 from ..cost.logical_cost import LogicalCost
+from ..planner import Planner
+from ..rules import Rule
 
 logger = Logger.general_logger
 debugger = Logger.finer_logger

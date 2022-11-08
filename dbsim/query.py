@@ -1,7 +1,8 @@
-from .ast import LoadOp, Expr, deepCopyAST
+from .ast import Expr, LoadOp, deepCopyAST
 from .operations import isa
 from .schema_interpreter import resolve_schema
 from .utils import *
+
 
 class Query(object):
   __slots__ = {

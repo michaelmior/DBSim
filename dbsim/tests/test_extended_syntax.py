@@ -1,16 +1,20 @@
+from datetime import date
+
+import numpy as np
+from scipy.spatial.distance import euclidean
+
 from dbsim.query import Query
+
 from .. import dataset as ds
-from .fixtures.employee_adapter import EmployeeDataFrameAdapter, EmployeeVectorAdapter
-from .fixtures.spatial_adapter import SpatialAdapter
-from ..query_parser import parse, parse_statement
 from ..ast import *
-from ..utils.visualizer import LogicalPlanViz 
-from ..planners import rules
 from ..extensions.extended_syntax.sim_select_syntax import *
 from ..extensions.extended_syntax.spatial_syntax import *
-from scipy.spatial.distance import euclidean
-from datetime import date
-import numpy as np
+from ..planners import rules
+from ..query_parser import parse, parse_statement
+from ..utils.visualizer import LogicalPlanViz
+from .fixtures.employee_adapter import (EmployeeDataFrameAdapter,
+                                        EmployeeVectorAdapter)
+from .fixtures.spatial_adapter import SpatialAdapter
 
 dataset = ds.DataSet()
 adapter = EmployeeVectorAdapter()

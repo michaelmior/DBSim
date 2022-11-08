@@ -1,11 +1,11 @@
-from itertools import chain
-from copy import deepcopy
-
-from .immutable import ImmutableMixin
-from .field import Field
-from .utils.exceptions import * 
-
 import inspect
+from copy import deepcopy
+from itertools import chain
+
+from .field import Field
+from .immutable import ImmutableMixin
+from .utils.exceptions import *
+
 
 class Schema(ImmutableMixin):
   __slots__ = {

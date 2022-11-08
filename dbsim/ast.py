@@ -1,15 +1,14 @@
-import typing
-from typing import List, Set, Dict, Union
-from copy import copy, deepcopy
-from enum import Enum
-from .immutable import ImmutableMixin
-from collections import namedtuple
-
-from .utils import *
-from .utils.exceptions import *
-
 import inspect
 import queue
+import typing
+from collections import namedtuple
+from copy import copy, deepcopy
+from enum import Enum
+from typing import Dict, List, Set, Union
+
+from .immutable import ImmutableMixin
+from .utils import *
+from .utils.exceptions import *
 
 DEFAULT_COST_FACTOR: float = 1.0
 TINY_COST_FACTOR: float = 0.1

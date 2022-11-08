@@ -1,12 +1,8 @@
-from . import Query
-from .ast import (
-  RelationalOp, ProjectionOp, SelectionOp, GroupByOp, OrderByOp, 
-  SliceOp, JoinOp, LoadOp,
-  And, SelectAllExpr
-)
-from . import query_parser
-
+from . import Query, query_parser
+from .ast import (And, GroupByOp, JoinOp, LoadOp, OrderByOp, ProjectionOp,
+                  RelationalOp, SelectAllExpr, SelectionOp, SliceOp)
 from .compilers.local import is_aggregate
+
 
 class QueryBuilder(object):
   """

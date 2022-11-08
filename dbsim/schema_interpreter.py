@@ -7,17 +7,14 @@ from dbsim.utils import ERROR_IF_NOT_INSTANCE_OF, getClassNameOfClass
 from dbsim.utils.exceptions import ExtensionInternalError
 
 from . import Relation
-from .schema import Schema,JoinSchema
-from .operations import walk, visit_with, is_not
-
+from .ast import (AliasOp, BinaryOp, BoolConst, Const, Expr, Function,
+                  GroupByOp, JoinOp, LeftJoinOp, LoadOp, NullConst,
+                  NumberConst, ParamGetterOp, ProjectionOp, RenameOp,
+                  SelectAllExpr, SelectionOp, StringConst, SuperRelationalOp,
+                  UnaryOp, UnionAllOp, Var)
 from .field import Field, FieldType
-from .ast import (
-  Expr, ProjectionOp, SelectionOp, GroupByOp, RenameOp, LoadOp,
-  JoinOp, LeftJoinOp, SuperRelationalOp, UnionAllOp,
-  Var, Function, 
-  Const, UnaryOp, BinaryOp, AliasOp, SelectAllExpr,
-  NumberConst, StringConst, BoolConst, NullConst, ParamGetterOp
-)
+from .operations import is_not, visit_with, walk
+from .schema import JoinSchema, Schema
 
 ConstNodeToDataType: typing.Dict[Const, FieldType] = {
   NumberConst: FieldType.INTEGER,

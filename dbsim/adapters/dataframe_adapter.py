@@ -1,6 +1,9 @@
-from dbsim import Table
 from pandas import DataFrame
+
+from dbsim import Table
+
 from . import Adapter
+
 
 class DataFrameAdapter(Adapter):
   """

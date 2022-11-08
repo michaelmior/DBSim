@@ -1,6 +1,7 @@
 import logging
 import sys
-  
+
+
 class Logger(object):
   # general logger for global use
   general_logger = logging.getLogger("general_logger")

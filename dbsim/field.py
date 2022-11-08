@@ -1,6 +1,7 @@
 import typing
 from enum import Enum
 
+
 class FieldType(Enum):
   INTEGER = 'INTEGER'
   FLOAT = 'FLOAT'

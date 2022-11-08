@@ -1,8 +1,12 @@
-import queue
 import os
+import queue
+
 import graphviz
-from dbsim.ast import * 
+
+from dbsim.ast import *
+
 from . import *
+
 
 class LogicalPlanViz:
     """

@@ -1,8 +1,10 @@
 from __future__ import absolute_import
+
+import inspect
+import string
+
 from ..field import FieldType
 
-import string
-import inspect
 
 def null_if_arg_is_null(f):
   """

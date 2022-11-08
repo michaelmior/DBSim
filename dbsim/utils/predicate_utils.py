@@ -1,12 +1,13 @@
 import typing
-from typing import List, Set, Dict, Union
+from collections import namedtuple
 from copy import copy, deepcopy
 from enum import Enum
-from collections import namedtuple
+from typing import Dict, List, Set, Union
 
+from ..ast import *
 from . import *
 from .exceptions import *
-from ..ast import *
+
 
 class PredicateUtils(object):
 

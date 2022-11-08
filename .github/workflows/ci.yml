@@ -32,3 +32,4 @@ jobs:
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv install --dev
       - run: pipenv run python3 -m pytest
+      - run: pipenv run isort --check

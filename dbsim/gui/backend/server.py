@@ -1,23 +1,24 @@
-import tornado.ioloop
-import tornado.web
 import json
 import os
-import time
 import sys
+import time
+
+import tornado.ioloop
+import tornado.web
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from dbsim import dataset as ds
 from dbsim.adapters.adapter_factory import AdapterFactory
-from dbsim.query_parser import parse_statement
-from dbsim.query import Query
 from dbsim.ast import *
-from dbsim.utils.visualizer import LogicalPlanViz 
-from dbsim.utils.exceptions import *
-from dbsim.planners import rules
-from dbsim.planners import planner
-from dbsim.planners.heuristic.heuristic_planner import HeuristicPlanner
 from dbsim.compilers import local
+from dbsim.extensions.extended_syntax import registry
+from dbsim.planners import planner, rules
 from dbsim.planners.cost.logical_cost import LogicalCost
-from dbsim.extensions.extended_syntax import registry 
+from dbsim.planners.heuristic.heuristic_planner import HeuristicPlanner
+from dbsim.query import Query
+from dbsim.query_parser import parse_statement
+from dbsim.utils.exceptions import *
+from dbsim.utils.visualizer import LogicalPlanViz
 
 SUCCESS = 0
 FAILURE = -1

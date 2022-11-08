@@ -1,9 +1,10 @@
 from collections import OrderedDict
+
+from ...utils.logger import Logger
 from .extended_syntax import ExtendedSyntax
 from .registry_utils import *
 from .sim_select_syntax import *
 from .spatial_syntax import *
-from ...utils.logger import Logger
 
 logger = Logger.general_logger
 

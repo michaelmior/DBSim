@@ -1,6 +1,4 @@
-from . import math
-from . import string
-from . import relational
+from . import math, relational, string
 
 
 def register_on(dataset):

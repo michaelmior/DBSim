@@ -1,15 +1,16 @@
-import os
-import pandas as pd
-import numpy
 import inspect
+import os
 import typing
-from typing import Dict, Type, Callable
+from typing import Callable, Dict, Type
 
-from . import Adapter
-from .dataframe_adapter import DataFrameAdapter
+import numpy
+import pandas as pd
+
+from .. import field
 from ..utils import *
 from ..utils.logger import Logger
-from .. import field 
+from . import Adapter
+from .dataframe_adapter import DataFrameAdapter
 
 logger = Logger.general_logger
 
