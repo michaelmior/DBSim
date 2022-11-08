@@ -28,7 +28,7 @@ class ImmutableMixin(object):
     attrs = {attr:getattr(self, attr) for attr in self.__slots__}
     attrs.update(parts)
 
-    arg_spec = inspect.getargspec(self.__class__.__init__)
+    arg_spec = inspect.getfullargspec(self.__class__.__init__)
     args = []
     for arg in arg_spec.args[1:]:
       args.append(attrs.pop(arg))

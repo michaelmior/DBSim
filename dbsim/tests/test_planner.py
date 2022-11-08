@@ -4,7 +4,7 @@ from .fixtures.employee_adapter import EmployeeDataFrameAdapter, EmployeeVectorA
 from ..query_parser import parse, parse_statement
 from ..query import Query
 from ..ast import *
-from ..utils.visualizer import LogicalPlanViz 
+from ..utils.visualizer import LogicalPlanViz
 from ..utils.exceptions import *
 from ..planners import rules
 from ..planners import planner
@@ -23,7 +23,7 @@ def test_addRule():
   success = optim.addRule(rule1)
   assert success
   failure = optim.addRule(rule2)
-  assert not failure 
+  assert not failure
 
 def test_HeuristicPlanner_one_rule_one_match():
   """
@@ -36,7 +36,7 @@ def test_HeuristicPlanner_one_rule_one_match():
   assert len(planner.rule_seq) == 1
   sql = """
     select employees_2.employee_id
-    from 
+    from
       (select * from employees, employees_2 where employees.employee_id = employees_2.employee_id)
     where employees.employee_id = 1234
   """
@@ -51,17 +51,17 @@ def test_HeuristicPlanner_one_rule_one_match():
     selection: employees.employee_id = 1234
         |
     selection: employees.employee_id = employees_2.employee_id
-        |              
+        |
       join: true
-    /             \   
+    /             \\
 load: employees  load: employees_2
   """
   planner.setRoot(plan)
   try:
     equiv_subplans = planner.applyRule(plan.relation, rule1)
-    # planner.applyRule requires resolved plan, while plan.relation is an unresolved expression tree, 
-    # so this line should always throw exception, i.e., it should never reach 'assert False'. 
-    assert False 
+    # planner.applyRule requires resolved plan, while plan.relation is an unresolved expression tree,
+    # so this line should always throw exception, i.e., it should never reach 'assert False'.
+    assert False
   except Exception as e:
     # planner.applyRule should throw a PlannerInternalError exception
     assert isinstance(e, PlannerInternalError)
@@ -73,9 +73,9 @@ load: employees  load: employees_2
   """
   The new_subplan should look like:
     selection: employees.employee_id = employees_2.employee_id and employees.employee_id = 1234
-        |              
+        |
       join: true
-    /             \   
+    /             \\
 Relation: employees  Relation: employees_2
   """
   best_plan = planner.findBestPlan(resolved_plan)
@@ -85,9 +85,9 @@ Relation: employees  Relation: employees_2
     projection: employees_2.employee_id
         |
     selection: employees.employee_id = employees_2.employee_id and employees.employee_id = 1234
-        |              
+        |
       join: true
-    /             \   
+    /             \\
 Relation: employees  Relation: employees_2
   """
   assert str(best_plan) == str(plan)
@@ -106,13 +106,13 @@ def test_HeuristicPlanner_one_rule_multi_matches():
   planner.addRule(rule1)
   assert len(planner.rule_set) == len(planner.rule_seq)
   assert len(planner.rule_seq) == 1
-  
+
   sql = """
     select employees_2.employee_id
-    from 
+    from
     (
       select *
-      from 
+      from
         (select * from employees, employees_2 where employees.employee_id = employees_2.employee_id)
       where employees.employee_id = 1234
     )
@@ -129,9 +129,9 @@ def test_HeuristicPlanner_one_rule_multi_matches():
     selection: employees.employee_id = 1234
         |
     selection: employees.employee_id = employees_2.employee_id
-        |              
+        |
       join: true
-    /             \   
+    /             \\
 load: employees  load: employees_2
   """
   #LogicalPlanViz.show(plan)
@@ -143,9 +143,9 @@ load: employees  load: employees_2
     projection: employees_2.employee_id
         |
     selection: employees.employee_id = employees_2.employee_id and employees.employee_id = 1234 and employees.employee_id > 1000
-        |              
+        |
       join: true
-    /             \   
+    /             \\
 Relation: employees  Relation: employees_2
   """
 
@@ -155,7 +155,7 @@ def test_HeuristicPlanner_multi_rules_multi_matches():
   """
   sql = """
     select employees_2.employee_id
-    from 
+    from
       (select * from employees, employees_2 where employees.employee_id = employees_2.employee_id)
     where employees.employee_id = 1234
   """
@@ -168,9 +168,9 @@ def test_HeuristicPlanner_multi_rules_multi_matches():
     selection: employees.employee_id = 1234
           |
     selection: employees.employee_id = employees_2.employee_id
-          |              
+          |
         join: true
-    /                 \   
+    /                 \\
 Relation: employees  Relation: employees_2
   """
   planner = HeuristicPlanner(max_limit = float('Inf'))
@@ -181,25 +181,25 @@ Relation: employees  Relation: employees_2
   The best_plan should look like:
     projection: employees_2.employee_id
                 |
-    selection: employees.employee_id = employees_2.employee_id 
-                |              
+    selection: employees.employee_id = employees_2.employee_id
+                |
             join: true
-    /                         \   
+    /                         \\
 selection:                    Relation: employees_2
 employees.employee_id = 1234
     |
-Relation: employees  
+Relation: employees
   """
   assert isinstance(best_plan, ProjectionOp)
   assert isinstance(best_plan.relation, SelectionOp)\
     and Predicate.fromRelationOp(best_plan.relation)\
-       .equalToExprByStr("employees.employee_id = employees_2.employee_id ") 
+       .equalToExprByStr("employees.employee_id = employees_2.employee_id ")
   assert isinstance(best_plan.relation.relation, JoinOp)\
     and Predicate.fromRelationOp(best_plan.relation.relation)\
-       .equalToExprByStr("true") 
+       .equalToExprByStr("true")
   assert isinstance(best_plan.relation.relation.left, SelectionOp)\
      and Predicate.fromRelationOp(best_plan.relation.relation.left)\
-       .equalToExprByStr("employees.employee_id = 1234") 
+       .equalToExprByStr("employees.employee_id = 1234")
   assert isinstance(best_plan.relation.relation.right, Relation)
   assert isinstance(best_plan.relation.relation.left.relation, Relation)
 
@@ -215,25 +215,25 @@ Relation: employees
   The best_plan should look like the same as above:
     projection: employees_2.employee_id
                 |
-    selection: employees.employee_id = employees_2.employee_id 
-                |              
+    selection: employees.employee_id = employees_2.employee_id
+                |
             join: true
-    /                         \   
+    /                         \\
 selection:                    Relation: employees_2
 employees.employee_id = 1234
     |
-Relation: employees  
+Relation: employees
   """
   assert isinstance(best_plan, ProjectionOp)
   assert isinstance(best_plan.relation, SelectionOp)\
     and Predicate.fromRelationOp(best_plan.relation)\
-       .equalToExprByStr("employees.employee_id = employees_2.employee_id ") 
+       .equalToExprByStr("employees.employee_id = employees_2.employee_id ")
   assert isinstance(best_plan.relation.relation, JoinOp)\
     and Predicate.fromRelationOp(best_plan.relation.relation)\
-       .equalToExprByStr("true") 
+       .equalToExprByStr("true")
   assert isinstance(best_plan.relation.relation.left, SelectionOp)\
      and Predicate.fromRelationOp(best_plan.relation.relation.left)\
-       .equalToExprByStr("employees.employee_id = 1234") 
+       .equalToExprByStr("employees.employee_id = 1234")
   assert isinstance(best_plan.relation.relation.right, Relation)
   assert isinstance(best_plan.relation.relation.left.relation, Relation)
 
@@ -243,16 +243,16 @@ Relation: employees
 
 def test_HeuristicPlanner_multi_rules_multi_matches_with_simselect():
   """
-  Multiple rules added and multiple matches exist between the plan and rules, 
+  Multiple rules added and multiple matches exist between the plan and rules,
   including simselect and Selection_SimSelection_Swap_Rule
   """
   sql = """
     select employees_with_vectors.employee_id
-    from 
-      (select * 
-        from 
-          (select * from employees, employees_with_vectors where employees.employee_id = employees_with_vectors.employee_id) 
-        where 
+    from
+      (select *
+        from
+          (select * from employees, employees_with_vectors where employees.employee_id = employees_with_vectors.employee_id)
+        where
           employees_with_vectors.vector to [1,2,3,4] < 10
       )
     where employees.employee_id > 1500
@@ -270,9 +270,9 @@ def test_HeuristicPlanner_multi_rules_multi_matches_with_simselect():
     simselection: employees_with_vectors.vector to [1,2,3,4] < 10
           |
     selection: employees.employee_id = employees_with_vectors.employee_id
-          |              
+          |
         join: true
-    /                 \   
+    /                 \\
 Relation: employees  Relation: employees_with_vectors
   """
   planner = HeuristicPlanner(max_limit = float('Inf'))
@@ -286,27 +286,27 @@ Relation: employees  Relation: employees_with_vectors
                 |
     simselection: employees_with_vectors.vector to [1,2,3,4] < 10
                 |
-    selection: employees.employee_id = employees_with_vectors.employee_id 
-                |              
+    selection: employees.employee_id = employees_with_vectors.employee_id
+                |
             join: true
-    /                         \   
+    /                         \\
 selection:                    Relation: employees_with_vectors
 employees.employee_id > 1500
     |
-Relation: employees  
+Relation: employees
   """
   #LogicalPlanViz.show(best_plan)
   assert getClassNameOfInstance(best_plan) == 'ProjectionOp'
   assert getClassNameOfInstance(best_plan.relation) == 'SimSelectionOp'
   assert getClassNameOfInstance(best_plan.relation.relation) == 'SelectionOp'\
     and Predicate.fromRelationOp(best_plan.relation.relation)\
-       .equalToExprByStr("employees.employee_id = employees_with_vectors.employee_id ") 
+       .equalToExprByStr("employees.employee_id = employees_with_vectors.employee_id ")
   assert getClassNameOfInstance(best_plan.relation.relation.relation) == 'JoinOp'\
     and Predicate.fromRelationOp(best_plan.relation.relation.relation)\
-       .equalToExprByStr("true") 
+       .equalToExprByStr("true")
   assert getClassNameOfInstance(best_plan.relation.relation.relation.left) == 'SelectionOp'\
      and Predicate.fromRelationOp(best_plan.relation.relation.relation.left)\
-       .equalToExprByStr("employees.employee_id > 1500") 
+       .equalToExprByStr("employees.employee_id > 1500")
   assert isinstance(best_plan.relation.relation.relation.right, Relation)
   assert isinstance(best_plan.relation.relation.relation.left.relation, Relation)
 
@@ -320,11 +320,11 @@ def test_integrated_optimization_in_query():
   planner.addRule(rules.Selection_SimSelection_Swap_Rule())
   sql = """
     select employees_with_vectors.employee_id
-    from 
-      (select * 
-        from 
-          (select * from employees, employees_with_vectors where employees.employee_id = employees_with_vectors.employee_id) 
-        where 
+    from
+      (select *
+        from
+          (select * from employees, employees_with_vectors where employees.employee_id = employees_with_vectors.employee_id)
+        where
           employees_with_vectors.vector to [1,2,3,4] < 10
       )
     where employees.employee_id > 1500
