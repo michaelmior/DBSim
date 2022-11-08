@@ -14,7 +14,7 @@ from dbsim.utils.visualizer import LogicalPlanViz
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())
 
-planner = HeuristicPlanner(max_limit = float('Inf'))
+planner = HeuristicPlanner(max_limit=float("Inf"))
 planner.addRule(rules.FilterMergeRule())
 planner.addRule(rules.FilterPushDownRule())
 planner.addRule(rules.Selection_SimSelection_Swap_Rule())

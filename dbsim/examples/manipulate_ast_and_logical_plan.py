@@ -15,7 +15,7 @@ from dbsim.utils.visualizer import LogicalPlanViz
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())
 
-planner = HeuristicPlanner(max_limit = float('Inf'))
+planner = HeuristicPlanner(max_limit=float("Inf"))
 planner.addRule(rules.FilterMergeRule())
 planner.addRule(rules.FilterPushDownRule())
 planner.addRule(rules.Selection_SimSelection_Swap_Rule())
@@ -56,9 +56,9 @@ assert not ast.equal(ast_2)
 
 # check if an AST and a logical plan are identical on tree structure.
 # since ast has no schema but plan has, ignore_schema must be True,
-#   and another parameter 'match_loadop_and_relation' must be True, 
-#   which will consider LoadOp (only appearing in AST) and Relation (only appearing in logical plan) 
-#   to be identical operators. 
+#   and another parameter 'match_loadop_and_relation' must be True,
+#   which will consider LoadOp (only appearing in AST) and Relation (only appearing in logical plan)
+#   to be identical operators.
 assert ast.equal(plan, ignore_schema=True, match_loadop_and_relation=True)
 # if either ignore_schema or match_loadop_and_relation is False, ast and plan are not identical
 assert not ast.equal(plan, ignore_schema=True, match_loadop_and_relation=False)
@@ -67,20 +67,22 @@ assert not ast.equal(plan, ignore_schema=False, match_loadop_and_relation=True)
 """
 Transform an AST into logical plan (by adding schema info into it)
 """
-# Constructing a Query object with resolve_op_schema=True 
-#   will resolve the schema of each tree node 
+# Constructing a Query object with resolve_op_schema=True
+#   will resolve the schema of each tree node
 #   by which an AST is converted into logical plan.
 plan_from_ast = Query(dataset, ast, resolve_op_schema=True).getPlan()
 assert not ast.isResolved() and plan_from_ast.isResolved()
 assert plan_from_ast.equal(ast, ignore_schema=True, match_loadop_and_relation=True)
 assert not plan_from_ast.equal(ast, ignore_schema=False, match_loadop_and_relation=True)
-# When resolve_op_schema=False, the constructor of Query will not resolve the schema 
+# When resolve_op_schema=False, the constructor of Query will not resolve the schema
 #   but simply store a deepcopy of the original input AST/plan.
 plan_from_plan = Query(dataset, plan_from_ast, resolve_op_schema=False).getPlan()
 assert plan_from_plan.isResolved()
 assert plan_from_plan is not plan_from_ast
 assert plan_from_plan.equal(ast, ignore_schema=True, match_loadop_and_relation=True)
-assert plan_from_plan.equal(plan_from_ast, ignore_schema=False, match_loadop_and_relation=False)
+assert plan_from_plan.equal(
+    plan_from_ast, ignore_schema=False, match_loadop_and_relation=False
+)
 
 """
 Deep copy an AST/plan
@@ -96,11 +98,11 @@ assert plan_copy.equal(plan, ignore_schema=False) and plan_copy is not plan
 Traverse an AST/plan by DFS or BFS
 """
 print("Traversal by DFS ---> ")
-for node in traverse(ast, order='dfs'):
-  print(node)
+for node in traverse(ast, order="dfs"):
+    print(node)
 print("Traversal by BFS ---> ")
-for node in traverse(ast, order='bfs'):
-  print(node)
+for node in traverse(ast, order="bfs"):
+    print(node)
 
 """
 Get children of an AST/plan node

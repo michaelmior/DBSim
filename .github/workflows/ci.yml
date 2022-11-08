@@ -33,3 +33,4 @@ jobs:
       - run: pipenv install --dev
       - run: pipenv run python3 -m pytest
       - run: pipenv run isort --check
+      - run: pipenv run black --check

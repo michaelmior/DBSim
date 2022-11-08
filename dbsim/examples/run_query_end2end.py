@@ -12,7 +12,7 @@ from dbsim.tests.fixtures.demo_adapter import DemoAdapter
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())
 
-planner = HeuristicPlanner(max_limit = float('Inf'))
+planner = HeuristicPlanner(max_limit=float("Inf"))
 planner.addRule(rules.FilterMergeRule())
 planner.addRule(rules.FilterPushDownRule())
 planner.addRule(rules.Selection_SimSelection_Swap_Rule())
@@ -29,13 +29,13 @@ standard_sql = """
     WHERE musical.year > 1960
 """
 # without query optimization
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(standard_sql)):
-  print(row)
+    print(row)
 # with query optimization
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(standard_sql), optimizer=planner):
-  print(row)
+    print(row)
 
 extended_syntax_sql = """
     SELECT musical.title, musical.year
@@ -49,10 +49,10 @@ extended_syntax_sql = """
     WHERE musical.year > 1960
 """
 # without query optimization
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(extended_syntax_sql)):
-  print(row)
+    print(row)
 # with query optimization
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(extended_syntax_sql), optimizer=planner):
-  print(row)
+    print(row)

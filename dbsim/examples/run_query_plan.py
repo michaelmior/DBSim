@@ -13,7 +13,7 @@ from dbsim.utils.visualizer import LogicalPlanViz
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())
 
-planner = HeuristicPlanner(max_limit = float('Inf'))
+planner = HeuristicPlanner(max_limit=float("Inf"))
 planner.addRule(rules.FilterMergeRule())
 planner.addRule(rules.FilterPushDownRule())
 planner.addRule(rules.Selection_SimSelection_Swap_Rule())
@@ -38,11 +38,11 @@ LogicalPlanViz.show(plan, view=True)
 LogicalPlanViz.show(best_plan, view=True)
 
 # execute the generated plans directly.
-# resolve_op_schema=False will prevent the constructor of Query 
+# resolve_op_schema=False will prevent the constructor of Query
 #   from modifying the input plan.
-print('------------------')
+print("------------------")
 for row in Query(dataset, plan, resolve_op_schema=False):
-  print(row)
-print('------------------')
+    print(row)
+print("------------------")
 for row in Query(dataset, best_plan, resolve_op_schema=False):
-  print(row)
+    print(row)

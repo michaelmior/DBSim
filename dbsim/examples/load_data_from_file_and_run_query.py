@@ -11,12 +11,12 @@ dataset = ds.DataSet()
 
 # load data adapter from csv/tsv file
 animation_adapter = AdapterFactory.fromFile(
-  os.path.join(os.path.dirname(__file__), "./example_ds/animation.csv"), 
-  ds_name="animation"
+    os.path.join(os.path.dirname(__file__), "./example_ds/animation.csv"),
+    ds_name="animation",
 )
 musical_adapter = AdapterFactory.fromFile(
-  os.path.join(os.path.dirname(__file__), "./example_ds/musical.csv"), 
-  ds_name="musical"
+    os.path.join(os.path.dirname(__file__), "./example_ds/musical.csv"),
+    ds_name="musical",
 )
 # add them into the dataset
 dataset.add_adapter(animation_adapter)
@@ -33,9 +33,9 @@ standard_sql = """
       )
     WHERE musical.year > 1960
 """
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(standard_sql)):
-  print(row)
+    print(row)
 
 extended_syntax_sql = """
     SELECT musical.title, musical.year
@@ -48,6 +48,6 @@ extended_syntax_sql = """
       )
     WHERE musical.year > 1960
 """
-print('------------------')
+print("------------------")
 for row in Query(dataset, parse_statement(extended_syntax_sql)):
-  print(row)
+    print(row)

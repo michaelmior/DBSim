@@ -15,6 +15,7 @@ graphviz = "==0.19"
 
 [dev-packages]
 isort = "*"
+black = "*"
 
 [requires]
 python_version = "3.7"

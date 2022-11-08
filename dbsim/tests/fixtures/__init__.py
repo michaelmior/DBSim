@@ -5,7 +5,7 @@ from .mock_adapter import MockAdapter
 
 
 def mock_data_set():
-  dataset = DataSet()
-  dataset.add_adapter(MockAdapter())
-  dataset.add_adapter(EmployeeAdapter())
-  return dataset
+    dataset = DataSet()
+    dataset.add_adapter(MockAdapter())
+    dataset.add_adapter(EmployeeAdapter())
+    return dataset

@@ -12,7 +12,7 @@ from dbsim.tests.fixtures.demo_adapter import DemoAdapter
 
 dataset = ds.DataSet()
 dataset.add_adapter(DemoAdapter())
-planner = HeuristicPlanner(max_limit = float('Inf'))
+planner = HeuristicPlanner(max_limit=float("Inf"))
 planner.addRule(rules.FilterMergeRule())
 planner.addRule(rules.FilterPushDownRule())
 planner.addRule(rules.Selection_SimSelection_Swap_Rule())
@@ -32,11 +32,11 @@ query = Query(dataset, parse_statement(sql))
 plan = query.getPlan()
 best_plan = planner.findBestPlan(plan)
 
-# refineCostFactors will compute the up-to-date cost factor 
-#   of each plan node based on its descendants. 
-# This method must be called before getCost, 
+# refineCostFactors will compute the up-to-date cost factor
+#   of each plan node based on its descendants.
+# This method must be called before getCost,
 #   otherwise the cost computation will be less accurate.
-# See Github Wiki of this repo for more details on logical cost computation. 
+# See Github Wiki of this repo for more details on logical cost computation.
 LogicalCost.refineCostFactors(plan, False)
 LogicalCost.refineCostFactors(best_plan, False)
 # After refineCostFactors, call getCost to return the cost of the input plan.
@@ -45,4 +45,4 @@ print("Cost (best plan): ", LogicalCost.getCost(best_plan, dataset).toNumeric())
 
 print("Results:\n----------------")
 for row in Query(dataset, best_plan, False):
-  print(row)
+    print(row)
