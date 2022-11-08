@@ -1,4 +1,5 @@
 # DBSim
+[![CI](https://github.com/michaelmior/DBSim/actions/workflows/ci.yml/badge.svg)](https://github.com/michaelmior/DBSim/actions/workflows/ci.yml)
 
 DBSim is an extensible database simulator in pure Python for fast prototyping in-database algorithms. It provides a simulated RDBMS environment, related tools and high extensibility & flexibility for data scientists to fast develop, verify and analyze the prototypes of in-database analytic algorithms. 
 
