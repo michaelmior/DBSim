@@ -1,3 +1,5 @@
 # .git-blame-ignore-revs
 # Sort imports
 025c148f52af9891eb0138c6fe212ea89c58734e
+# Format code using Black
+1051665f4796f6eba03c632fe9b3998f56cb05bf
