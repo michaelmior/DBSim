@@ -20,16 +20,16 @@ Implementing any new in-database algorithm directly in real database kernels wit
 
 ### Install 
 
-DBSim requires Python 3.6+ . To install necessary dependencies, run the following command:
+DBSim requires Python 3.7+ and [Pipenv](https://pipenv.pypa.io/en/latest/). To install necessary dependencies, run the following command:
 
 ```
-pip install -r requirements.txt
+pipenv install
 ```
 
 ### Run the demo
 
 ```
-python demo.py
+pipenv run python demo.py
 ```
 
 ### Examples
