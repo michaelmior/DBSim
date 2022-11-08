@@ -27,7 +27,7 @@ def addExecutor(
 ):
   op_class, op_exe_func = executor
   if op_class in dst_executor_table:
-    logger.warn("You are overwriting an existing executor: {} - {}"\
+    logger.warning("You are overwriting an existing executor: {} - {}"\
       .format(getClassNameOfClass(op_class), op_exe_func))
   dst_executor_table[op_class] = op_exe_func
 
@@ -46,7 +46,7 @@ def removeExecutor(
   if op_class in dst_executor_table and op_exe_func is dst_executor_table[op_class]:
     del dst_executor_table[op_class]
   else:
-    logger.warn("You are removing a non-existing executor: {} - {}"\
+    logger.warning("You are removing a non-existing executor: {} - {}"\
       .format(getClassNameOfClass(op_class), op_exe_func))
 
 def removeExecutors(

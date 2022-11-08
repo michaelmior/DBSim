@@ -840,7 +840,7 @@ def getTriggeredSQLClauseParsersInfo(
         if sql_clause in clause_parsers_triggered:
           # There is already another triggered clause parser for this SQLClause, 
           #   in which case the current clause parser is ignored and print a warning about that.
-          logger.warn(
+          logger.warning(
             "Multiple clause parsers are triggered for the same SQL clause ({} parsers of {} and {})"\
             .format(
               sql_clause,

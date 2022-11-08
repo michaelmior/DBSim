@@ -38,7 +38,7 @@ class AdapterFactory(object):
         .format(type(extended_syntax)) 
     )
     if extended_syntax in cls.extendedSyntaxDataTypeConverters:
-      logger.warn("The datatype converter of ExtendedSyntax '{}' is already registered.".format(extended_syntax))
+      logger.warning("The datatype converter of ExtendedSyntax '{}' is already registered.".format(extended_syntax))
     cls.extendedSyntaxDataTypeConverters[extended_syntax] = datatype_converter
   
   @classmethod
@@ -49,7 +49,7 @@ class AdapterFactory(object):
         .format(type(extended_syntax)) 
     )
     if extended_syntax in cls.extendedSyntaxDataTypeConverters:
-      logger.warn("The datatype converter of ExtendedSyntax '{}' is not registered.".format(extended_syntax))
+      logger.warning("The datatype converter of ExtendedSyntax '{}' is not registered.".format(extended_syntax))
     del cls.extendedSyntaxDataTypeConverters[extended_syntax] 
 
   @classmethod

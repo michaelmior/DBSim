@@ -71,7 +71,7 @@ class Rule(object):
           .format(getClassNameOfInstance(self), inspect.signature(self.transform))
       )
     else:
-      logger.warn("{}.transform{} received a expression tree with unknown resolve status."\
+      logger.warning("{}.transform{} received a expression tree with unknown resolve status."\
         .format(getClassNameOfInstance(self), inspect.signature(self.transform))
       )
 

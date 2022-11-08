@@ -144,7 +144,7 @@ class HeuristicPlanner(Planner):
     self.setRoot(plan)
     ERROR_IF_NONE(self.root, "planner hasn't setup any plan root.", PlannerInternalError)
     if len(self.rule_seq) == 0:
-      logger.warn("planner was called without adding any rule.")
+      logger.warning("planner was called without adding any rule.")
       return deepCopyAST(self.root)
 
     num_rules_applied = 0
